@@ -26,9 +26,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/go/pkg/mod
-          key:  ${{ runner.os }}-go1.21.1-${{ hashFiles('**/go.sum') }}
+          key:  ${{ runner.os }}-go-1.21.1-${{ hashFiles('**/go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-go1.21.1
+            ${{ runner.os }}-go-1.21.1-
 
       -
         name: run golangci-lint
