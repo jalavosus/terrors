@@ -22,7 +22,7 @@ linters:
     - unconvert
     - goimports
     - ineffassign
-    - structcheck
+    - unused
     - bodyclose
     - lll
     - whitespace
@@ -62,4 +62,3 @@ issues:
         - gosimple
         - gofmt
         - goimports
-        - govet
