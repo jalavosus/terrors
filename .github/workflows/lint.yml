@@ -22,19 +22,10 @@ jobs:
           go-version: 1.21.1
 
       -
-        name: go mod cache
-        uses: actions/cache@v3
-        with:
-          path: ~/go/pkg/mod
-          key:  ${{ runner.os }}-go-1.21.1-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-1.21.1-
-
-      -
         name: run golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          skip-cache: true
+#          skip-cache: true
           version: v1.54
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
