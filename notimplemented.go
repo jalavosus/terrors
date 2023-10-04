@@ -17,8 +17,7 @@ var (
 // Note that calls to NotImplementedError.Error return msg prefixed with
 // "not implemented: "
 type NotImplementedError struct {
-	Msg        string
-	underlying error
+	Msg string
 }
 
 // Error implements the error interface.
@@ -36,5 +35,5 @@ func (e *NotImplementedError) Is(err error) bool {
 // with a given message, which can be a function name, details
 // about why something isn't implemented, or anything else.
 func NewNotImplementedError(msg string) error {
-	return &NotImplementedError{msg, ErrNotImplemented}
+	return &NotImplementedError{msg}
 }
