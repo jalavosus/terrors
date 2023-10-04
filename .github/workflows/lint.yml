@@ -8,15 +8,8 @@ on:
 
 jobs:
   lint:
-    strategy:
-      matrix:
-        go-version:
-          - 1.19.x
-          - 1.20.x
-          - 1.21.x
-        platform:
-          - ubuntu-latest
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
+
     steps:
       -
         name: checkout
@@ -26,16 +19,16 @@ jobs:
         name: setup go
         uses: actions/setup-go@v4
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: 1.21.1
 
       -
         name: go mod cache
         uses: actions/cache@v3
         with:
           path: ~/go/pkg/mod
-          key:  ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
+          key:  ${{ runner.os }}-go1.21.1-${{ hashFiles('**/go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-go-${{ matrix.go-version }}-
+            ${{ runner.os }}-go1.21.1
 
       -
         name: run golangci-lint
